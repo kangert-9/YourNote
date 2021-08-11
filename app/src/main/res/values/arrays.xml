@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="note_names">
+        <item>Заметка 1</item>
+        <item>Заметка 2</item>
+        <item>Заметка 3</item>
+        <item>Заметка 4</item>
+        <item>Заметка 5</item>
+    </string-array>
+
+    <string-array name="notes">
+        <item>что-то сделать 21/07/2021</item>
+        <item>что-то купить 22/07/2021</item>
+        <item>что-то починить 23/07/2021</item>
+        <item>кому-то написать 24/07/2021</item>
+        <item>кому-то позвонить 25/07/2021</item>
+    </string-array>
+
+</resources>
