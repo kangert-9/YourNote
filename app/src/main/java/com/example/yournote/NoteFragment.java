@@ -66,11 +66,11 @@ public class NoteFragment extends Fragment {
 
     private void showTextLand(int index) {
         TextFragment fragment = new TextFragment().newInstance(index);
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.text_note, fragment);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fragmentTransaction.commit();
+        requireActivity().getSupportFragmentManager()
+        .beginTransaction()
+        .replace(R.id.text_note, fragment)
+        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        .commit();
     }
 
 
