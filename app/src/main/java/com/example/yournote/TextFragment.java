@@ -36,9 +36,16 @@ public class TextFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_text, container, false);
         TextView textView = view.findViewById(R.id.text);
+        TextView textDate = view.findViewById(R.id.date);
         String[] text = getResources().getStringArray(R.array.notes);
+        String[] dates = getResources().getStringArray(R.array.dates);
+
         textView.setText(text[index-1]);
+        textDate.setText(dates[index-1]);
+
         textView.setTextSize(45);
+        textDate.setTextSize(30);
+
         return view;
     }
 }

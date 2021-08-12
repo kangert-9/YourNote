@@ -9,11 +9,20 @@
     </string-array>
 
     <string-array name="notes">
-        <item>что-то сделать 21/07/2021</item>
-        <item>что-то купить 22/07/2021</item>
-        <item>что-то починить 23/07/2021</item>
-        <item>кому-то написать 24/07/2021</item>
-        <item>кому-то позвонить 25/07/2021</item>
+        <item>что-то сделать</item>
+        <item>что-то купить</item>
+        <item>что-то починить</item>
+        <item>кому-то написать</item>
+        <item>кому-то позвонить</item>
     </string-array>
+
+    <string-array name="dates">
+        <item>21/07/2021</item>
+        <item>22/07/2021</item>
+        <item>23/07/2021</item>
+        <item>24/07/2021</item>
+        <item>25/07/2021</item>
+    </string-array>
+
 
 </resources>

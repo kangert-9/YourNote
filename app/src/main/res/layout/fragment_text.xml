@@ -8,9 +8,18 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerInside"
-        tools:text="здесь заметка"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="здесь заметка"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="здесь date"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/large_margin"/>
 
 </FrameLayout>

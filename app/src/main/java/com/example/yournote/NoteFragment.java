@@ -48,7 +48,6 @@ public class NoteFragment extends Fragment {
                 showText(index);
             });
 
-
         }
     }
 
