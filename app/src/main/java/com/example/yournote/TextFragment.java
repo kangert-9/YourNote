@@ -40,8 +40,8 @@ public class TextFragment extends Fragment {
         String[] text = getResources().getStringArray(R.array.notes);
         String[] dates = getResources().getStringArray(R.array.dates);
 
-        textView.setText(text[index-1]);
-        textDate.setText(dates[index-1]);
+        textView.setText(text[index]);
+        textDate.setText(dates[index]);
 
         textView.setTextSize(45);
         textDate.setTextSize(30);
