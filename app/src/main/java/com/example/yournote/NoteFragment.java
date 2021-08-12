@@ -2,6 +2,7 @@ package com.example.yournote;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,9 +50,19 @@ public class NoteFragment extends Fragment {
 
             textView.setOnClickListener(v -> {
                 showText(index);
+                updateText(index);
             });
 
         }
+    }
+
+    void updateText(int index){
+        LinearLayout linearLayout = (LinearLayout) getView();
+        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+            TextView textView = (TextView) linearLayout.getChildAt(i);
+            textView.setBackgroundColor(Color.WHITE);
+        }
+        ((TextView) linearLayout.getChildAt(index)).setBackgroundColor(Color.RED);
     }
 
     private void showText (int index) {
@@ -71,6 +82,7 @@ public class NoteFragment extends Fragment {
         .replace(R.id.text_note, fragment)
         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         .commit();
+
     }
 
 
