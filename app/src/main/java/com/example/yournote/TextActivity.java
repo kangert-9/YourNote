@@ -12,10 +12,10 @@ public class TextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text);
 
-//        if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
-//            finish();
-//            return;
-//        }
+        if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
+            finish();
+            return;
+        }
 
         if (savedInstanceState==null){
             TextFragment fragment = new TextFragment();
@@ -23,7 +23,7 @@ public class TextActivity extends AppCompatActivity {
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.text, fragment)
+                    .replace(R.id.fragment_container, fragment)
                     .commit();
         }
 

@@ -40,14 +40,15 @@ public class NoteFragment extends Fragment {
         for (int i = 0; i < notes.length; i++) {
             TextView textView = new TextView(getContext());
             textView.setText(notes[i]);
-            textView.setTextSize(30);
+            textView.setTextSize(45);
+            linearLayout.addView(textView);
             final int index = i;
 
             textView.setOnClickListener(v -> {
                 showText(index);
             });
 
-            linearLayout.addView(textView);
+
         }
     }
 
