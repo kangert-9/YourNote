@@ -2,4 +2,5 @@
 <resources>
     <dimen name="small_margin">20dp</dimen>
     <dimen name="large_margin">120dp</dimen>
+    <dimen name="sizeItemList">40sp</dimen>
 </resources>
