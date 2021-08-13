@@ -87,9 +87,11 @@ public class NoteFragment extends Fragment {
 
 
     private void showTextPort (int index) {
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), TextActivity.class);
-        intent.putExtra(TextFragment.ARG_INDEX, index);
-        startActivity(intent);
+        TextFragment fragment = new TextFragment().newInstance(index);
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.text_note, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();
     }
 }
