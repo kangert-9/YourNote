@@ -19,12 +19,12 @@ public class SocialNetworkAdapter
         this.dataSource = dataSource;
     }
 
-@NonNull
-@Override
-public SocialNetworkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-    View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
-    return new ViewHolder(v);
-}
+    @NonNull
+    @Override
+    public SocialNetworkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        return new ViewHolder(v);
+    }
 
     @Override
     public void onBindViewHolder(@NonNull SocialNetworkAdapter.ViewHolder viewHolder, int i) {
@@ -40,6 +40,10 @@ public SocialNetworkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup par
         this.itemClickListener = itemClickListener;
     }
 
+    public OnItemClickListener getOnItemClickListener(){
+       return itemClickListener;
+    }
+
     public interface OnItemClickListener {
         void onItemClick(View view , int position);
     }
@@ -52,21 +56,12 @@ public SocialNetworkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup par
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = (TextView) itemView;
-            textView.setOnClickListener(new View.setOnClickListener(){
-
-            };);
-
-//                    setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (itemClickListener != null) {
-//                        itemClickListener.onItemClick(v, getAdapterPosition());
-//                    }
-//                }
-//            });
-
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
         }
-
         public TextView getTextView() {
             return textView;
         }

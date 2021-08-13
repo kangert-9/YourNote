@@ -36,8 +36,6 @@ public class SocialNetworkFragment extends Fragment {
 
         SocialNetworkAdapter adapter = new SocialNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
-
-        // Установим слушателя
         adapter.SetOnItemClickListener(new SocialNetworkAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
