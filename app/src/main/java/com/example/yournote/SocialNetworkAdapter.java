@@ -40,30 +40,25 @@ public class SocialNetworkAdapter
         this.itemClickListener = itemClickListener;
     }
 
-    public OnItemClickListener getOnItemClickListener(){
-       return itemClickListener;
-    }
-
     public interface OnItemClickListener {
-        void onItemClick(View view , int position);
+        void onItemClick(int position);
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = (TextView) itemView;
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                }
+            textView.setOnClickListener(v -> {
+                itemClickListener.onItemClick(getAdapterPosition());
             });
-        }
+       }
         public TextView getTextView() {
             return textView;
         }
     }
+
 }

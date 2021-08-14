@@ -38,8 +38,8 @@ public class SocialNetworkFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         adapter.SetOnItemClickListener(new SocialNetworkAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(getContext(), String.format("%s - %d", ((TextView)view).getText(), position), Toast.LENGTH_SHORT).show();
+            public void onItemClick(int position) {
+                Toast.makeText(getContext(), String.format("Click on %s", data[position]), Toast.LENGTH_SHORT).show();
             }
         });
     }
