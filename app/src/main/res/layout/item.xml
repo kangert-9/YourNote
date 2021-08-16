@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="200dp"
     tools:text="@tools:sample/cities"
     android:textSize="@dimen/sizeItemList"
     app:cardCornerRadius="10dp"
@@ -18,25 +18,28 @@
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:textSize="20sp"
+            android:layout_height="70dp"
+            android:textSize="40sp"
+            android:textColor="@color/purple_500"
             tools:text="NOTE_NAME"/>
 
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:layout_marginStart="@dimen/margin"
-            android:textSize="20sp"
+            android:textSize="40sp"
+            android:textColor="@color/purple_200"
             tools:text="NOTE"/>
 
         <TextView
             android:id="@+id/deadline"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="50dp"
             android:gravity="end"
             android:layout_marginEnd="@dimen/margin"
-            android:textSize="10sp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
             tools:text="DATE" />
 
     </LinearLayout>
