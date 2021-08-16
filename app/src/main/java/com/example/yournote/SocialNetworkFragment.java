@@ -25,12 +25,12 @@ public class SocialNetworkFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_social_network, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_lines);
-        CardsSource data = new CardsSourceImpl(getResources()).init();
+        CardSource data = new CardSourceImpl (getResources()).init();
         initRecyclerView(recyclerView, data);
         return view;
     }
 
-    private void initRecyclerView(RecyclerView recyclerView, CardsSource data){
+    private void initRecyclerView(RecyclerView recyclerView, CardSource data){
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

@@ -10,15 +10,16 @@ import com.example.yournote.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardSourceImpl implements CardSource {
+class CardSourceImpl implements CardSource {
     private List<CardData> dataSource;
-    private Resources resources; // ресурсы приложения
+    private Resources resources;
 
     public CardSourceImpl(Resources resources) {
         dataSource = new ArrayList<>(5);
         this.resources = resources;
     }
-    public CardSource init(){
+
+    public CardSourceImpl init(){
         String[] titles = resources.getStringArray(R.array.note_names);
         String[] descriptions = resources.getStringArray(R.array.notes);
         String[] dates = resources.getStringArray(R.array.dates);
