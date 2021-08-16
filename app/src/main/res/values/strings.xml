@@ -7,4 +7,22 @@
     <string name="search">search</string>
     <string name="back">back</string>
 
+    <string name="note_names1">Заметка 1</string>
+    <string name="note_names2">Заметка 2</string>
+    <string name="note_names3">Заметка 3</string>
+    <string name="note_names4">Заметка 4</string>
+    <string name="note_names5">Заметка 5</string>
+
+    <string name="notes1">что-то сделать</string>
+    <string name="notes2">что-то купить</string>
+    <string name="notes3">что-то починить</string>
+    <string name="notes4">кому-то написать</string>
+    <string name="notes5">кому-то позвонить</string>
+
+        <string name="dates1">21/07/2021</string>
+        <string name="dates2">22/07/2021</string>
+        <string name="dates3">23/07/2021</string>
+        <string name="dates4">24/07/2021</string>
+        <string name="dates5">25/07/2021</string>
+
 </resources>

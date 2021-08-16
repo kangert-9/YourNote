@@ -1,11 +1,13 @@
 package com.example.yournote;
 
 public class CardData {
-    private String description;       // заголовок
+    private String note_name;       // заголовок
+    private String note;
     private String dates; // описание
 
-    public CardData(String description, String dates){
-        this.description = description;
+    public CardData(String note_name, String note, String dates){
+        this.note_name = note_name;
+        this.note=note;
         this.dates=dates;
     }
 
@@ -13,8 +15,12 @@ public class CardData {
         return dates;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNoteName() {
+        return note_name;
+    }
+
+    public String getNote() {
+        return note;
     }
 
 }
