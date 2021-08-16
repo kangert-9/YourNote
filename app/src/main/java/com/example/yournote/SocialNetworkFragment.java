@@ -38,11 +38,5 @@ public class SocialNetworkFragment extends Fragment {
 
         SocialNetworkAdapter adapter = new SocialNetworkAdapter(data);
         recyclerView.setAdapter(adapter);
-//        adapter.SetOnItemClickListener(new SocialNetworkAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Toast.makeText(getContext(), String.format("Click on %s", data[position]), Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }

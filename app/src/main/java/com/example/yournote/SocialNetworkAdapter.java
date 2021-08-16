@@ -37,14 +37,6 @@ public class SocialNetworkAdapter
         return dataSource.size();
     }
 
-//    public void SetOnItemClickListener(OnItemClickListener itemClickListener){
-//        this.itemClickListener = itemClickListener;
-//    }
-//
-//    public interface OnItemClickListener {
-//        void onItemClick(int position);
-//    }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -58,9 +50,6 @@ public class SocialNetworkAdapter
             text = itemView.findViewById(R.id.text);
             deadline = itemView.findViewById(R.id.deadline);
 
-//            textView.setOnClickListener(v -> {
-//                itemClickListener.onItemClick(getAdapterPosition());
-//            });
        }
         public void setData(CardData cardData){
             title.setText(cardData.getNoteName());
