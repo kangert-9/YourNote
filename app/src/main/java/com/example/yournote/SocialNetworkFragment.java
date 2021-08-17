@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,19 +22,40 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.yournote.R;
 
-import com.example.yournote.CardSource;
-import com.example.yournote.CardSourceImpl;
-
 
 public class SocialNetworkFragment extends Fragment {
-    private static final int NO_POSITION=-1;
-    private int currentPosition = NO_POSITION;
+    public static final String ARG_INDEX = "index";
     SocialNetworkAdapter adapter;
     CardSource data;
     RecyclerView recyclerView;
+    CardData newCard;
+
     public static SocialNetworkFragment newInstance() {
         return new SocialNetworkFragment();
     }
+//todo
+//    public static SocialNetworkFragment newInst(SocialNetworkFragment f) {
+//        Bundle args = new Bundle();
+//        args.putParcelable(ARG_INDEX, new CardData(null, null, null));
+//        f.setArguments(args);
+//        return f;
+//    }
+//todo
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        if (getArguments() != null) {
+//            newCard = getArguments().getParcelable(ARG_INDEX);
+//            for (int i = 0; i < data.size(); i++) {
+//                if (newCard.getNoteName()==data.getData(i).getNoteName()){
+//                    data.getData(i).setNote(newCard.getNote());
+//                    data.getData(i).setDates(newCard.getDates());
+//                    adapter.notifyItemChanged(i);
+//                }
+//            }
+//        }
+//    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,12 +103,6 @@ public class SocialNetworkFragment extends Fragment {
 
         adapter = new SocialNetworkAdapter(data, this);
         recyclerView.setAdapter(adapter);
-//        adapter.SetOnItemClickListener(new SocialNetworkAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View view, int position) {
-//                Toast.makeText(getContext(), String.format("Позиция - %d", position), Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 
     @Override
@@ -99,14 +115,15 @@ public class SocialNetworkFragment extends Fragment {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int position = adapter.getMenuPosition();
+        CardData card = data.getData(position);
         switch(item.getItemId()) {
             case R.id.action_update:
-                showTextFra(position);
+                showTextFra(card);
 //                data.updateCardData(position,
-//                        new CardData("Заметка " + position,
-//                                data.getData(position).getNote(),
-//                                data.getData(position).getDates()));
-                //adapter.notifyItemChanged(position);
+//                        new CardData(newCard.getNoteName(),
+//                                newCard.getNote(),
+//                                newCard.getDates()));
+//                adapter.notifyItemChanged(position);
 
                 return true;
             case R.id.action_delete:
@@ -117,10 +134,11 @@ public class SocialNetworkFragment extends Fragment {
         return super.onContextItemSelected(item);
     }
 
-    private void showTextFra(int position) {
+    private void showTextFra(CardData card) {
         Intent intent = new Intent();
         intent.setClass(getActivity(), TextActivity.class);
-        intent.putExtra(TextFragment.ARG_INDEX, position);
+        //intent.putParcelableArrayListExtra(TextFragment.ARG_INDEX, card);
+        intent.putExtra(TextFragment.ARG_INDEX, (Parcelable) card);
         startActivity(intent);
     }
 

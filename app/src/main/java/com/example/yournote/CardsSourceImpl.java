@@ -19,6 +19,7 @@ class CardSourceImpl implements CardSource {
         this.resources = resources;
     }
 
+
     public CardSourceImpl init(){
         String[] titles = resources.getStringArray(R.array.note_names);
         String[] descriptions = resources.getStringArray(R.array.notes);

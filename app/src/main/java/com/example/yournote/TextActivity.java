@@ -1,9 +1,12 @@
 package com.example.yournote;
 
+import static com.example.yournote.TextFragment.ARG_INDEX;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class TextActivity extends AppCompatActivity {
 
@@ -26,6 +29,6 @@ public class TextActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, fragment)
                     .commit();
         }
-
     }
+
 }

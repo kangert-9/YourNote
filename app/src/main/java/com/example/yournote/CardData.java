@@ -1,6 +1,14 @@
 package com.example.yournote;
 
-public class CardData {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+public class CardData implements Parcelable {
     private String note_name;       // заголовок
     private String note;
     private String dates; // описание
@@ -10,6 +18,24 @@ public class CardData {
         this.note=note;
         this.dates=dates;
     }
+
+    protected CardData(Parcel in) {
+        note_name = in.readString();
+        note = in.readString();
+        dates = in.readString();
+    }
+
+    public static final Creator<CardData> CREATOR = new Creator<CardData>() {
+        @Override
+        public CardData createFromParcel(Parcel in) {
+            return new CardData(in);
+        }
+
+        @Override
+        public CardData[] newArray(int size) {
+            return new CardData[size];
+        }
+    };
 
     public String getDates() {
         return dates;
@@ -23,4 +49,32 @@ public class CardData {
         return note;
     }
 
+    public void setNote_name(String name){
+        this.note_name=name;
+    }
+
+    public void setNote(String note){
+        this.note=note;
+    }
+
+    public void setDates(String date){
+        this.dates=date;
+    }
+
+    @NonNull
+    public Stream<Parcelable> stream() {
+        return null;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(note_name);
+        dest.writeString(note);
+        dest.writeString(dates);
+    }
 }
