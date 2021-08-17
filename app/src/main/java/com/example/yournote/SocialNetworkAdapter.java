@@ -8,15 +8,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
 public class SocialNetworkAdapter
         extends RecyclerView.Adapter<SocialNetworkAdapter.ViewHolder> {
 
     private CardSource dataSource;
-    //private OnItemClickListener itemClickListener;
+    private Fragment fragment;
+    private int menuPosition;
 
-    public SocialNetworkAdapter(CardSource dataSource) {
+    public SocialNetworkAdapter(CardSource dataSource, Fragment fragment) {
         this.dataSource = dataSource;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -28,13 +31,16 @@ public class SocialNetworkAdapter
 
     @Override
     public void onBindViewHolder(@NonNull SocialNetworkAdapter.ViewHolder viewHolder, int i) {
-        //viewHolder.bind(dataSource.getData(i));
         viewHolder.setData(dataSource.getData(i));
     }
 
     @Override
     public int getItemCount() {
         return dataSource.size();
+    }
+
+    public int getMenuPosition() {
+        return menuPosition;
     }
 
 
@@ -44,18 +50,41 @@ public class SocialNetworkAdapter
         private TextView text;
         private TextView deadline;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             text = itemView.findViewById(R.id.text);
             deadline = itemView.findViewById(R.id.deadline);
 
-       }
-        public void setData(CardData cardData){
+            registerContextMenu(itemView);
+
+        }
+
+        private void registerContextMenu(@NonNull View itemView) {
+            if (fragment != null) {
+                itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        menuPosition = getLayoutPosition();
+                        return false;
+                    }
+                });
+                fragment.registerForContextMenu(itemView);
+            }
+        }
+
+        public void setData(CardData cardData) {
             title.setText(cardData.getNoteName());
             text.setText(cardData.getNote());
             deadline.setText(cardData.getDates());
+            title.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    menuPosition = getLayoutPosition();
+                    itemView.showContextMenu();
+                }
+            });
         }
-    }
 
+    }
 }
