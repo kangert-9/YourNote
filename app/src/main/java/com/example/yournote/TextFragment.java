@@ -8,11 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.yournote.CardSourceImpl;
+import com.example.yournote.CardSource;
 
 public class TextFragment extends Fragment {
 
     static final String ARG_INDEX = "index";
     private int index;
+    CardSource data;
 
     public static TextFragment newInstance(int index) {
         TextFragment f = new TextFragment();
@@ -37,11 +40,10 @@ public class TextFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_text, container, false);
         TextView textView = view.findViewById(R.id.text);
         TextView textDate = view.findViewById(R.id.date);
-        String[] text = getResources().getStringArray(R.array.notes);
-        String[] dates = getResources().getStringArray(R.array.dates);
+        data = new CardSourceImpl (getResources()).init();
 
-        textView.setText(text[index]);
-        textDate.setText(dates[index]);
+        textView.setText(data.getData(index).getNote());
+        textDate.setText(data.getData(index).getDates());
 
         textView.setTextSize(45);
         textDate.setTextSize(30);
