@@ -5,13 +5,14 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.stream.Stream;
 
 public class CardData implements Parcelable {
-    private String note_name;       // заголовок
+    private String id;
+    private String note_name;
     private String note;
-    private String dates; // описание
+    private String dates;
 
     public CardData(String note_name, String note, String dates){
         this.note_name = note_name;
@@ -37,6 +38,9 @@ public class CardData implements Parcelable {
         }
     };
 
+    public CardData(String note_name, String note, Date toDate) {
+    }
+
     public String getDates() {
         return dates;
     }
@@ -59,6 +63,14 @@ public class CardData implements Parcelable {
 
     public void setDates(String date){
         this.dates=date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @NonNull
