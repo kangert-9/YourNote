@@ -21,10 +21,14 @@
     <string name="notes4">кому-то написать</string>
     <string name="notes5">кому-то позвонить</string>
 
-        <string name="dates1">21/07/2021</string>
-        <string name="dates2">22/07/2021</string>
-        <string name="dates3">23/07/2021</string>
-        <string name="dates4">24/07/2021</string>
-        <string name="dates5">25/07/2021</string>
+    <string name="dates1">21/07/2021</string>
+    <string name="dates2">22/07/2021</string>
+    <string name="dates3">23/07/2021</string>
+    <string name="dates4">24/07/2021</string>
+    <string name="dates5">25/07/2021</string>
+    <string name="exclamation">Важное сообщение</string>
+    <string name="question">Вы уверенны?</string>
+    <string name="no">нет</string>
+    <string name="yes">да</string>
 
 </resources>

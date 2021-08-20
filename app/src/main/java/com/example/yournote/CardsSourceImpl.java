@@ -1,18 +1,13 @@
 package com.example.yournote;
 
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-
-import com.example.yournote.CardData;
-import com.example.yournote.CardSource;
-import com.example.yournote.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class CardSourceImpl implements CardSource {
-    private List<CardData> dataSource;
-    private Resources resources;
+    private final List<CardData> dataSource;
+    private final Resources resources;
 
     public CardSourceImpl(Resources resources) {
         dataSource = new ArrayList<>(5);
@@ -32,7 +27,7 @@ class CardSourceImpl implements CardSource {
 
 
     @Override
-    public CardData getData(int position) {
+    public CardData getCardData(int position) {
         return dataSource.get(position);
     }
 

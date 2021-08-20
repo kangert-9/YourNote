@@ -5,13 +5,12 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class CardData implements Parcelable {
-    private String note_name;       // заголовок
+    private String note_name;
     private String note;
-    private String dates; // описание
+    private String dates;
 
     public CardData(String note_name, String note, String dates){
         this.note_name = note_name;

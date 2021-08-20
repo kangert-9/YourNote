@@ -1,7 +1,7 @@
 package com.example.yournote;
 
 public interface CardSource {
-    CardData getData(int position);
+    CardData getCardData(int position);
     int size();
     void deleteCardData(int position);
     void updateCardData(int position, CardData data);

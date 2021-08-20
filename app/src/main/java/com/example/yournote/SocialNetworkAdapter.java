@@ -3,7 +3,6 @@ package com.example.yournote;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,8 +12,8 @@ import androidx.fragment.app.Fragment;
 public class SocialNetworkAdapter
         extends RecyclerView.Adapter<SocialNetworkAdapter.ViewHolder> {
 
-    private CardSource dataSource;
-    private Fragment fragment;
+    private final CardSource dataSource;
+    private final Fragment fragment;
     private int menuPosition;
 
     public SocialNetworkAdapter(CardSource dataSource, Fragment fragment) {
@@ -31,8 +30,9 @@ public class SocialNetworkAdapter
 
     @Override
     public void onBindViewHolder(@NonNull SocialNetworkAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.setData(dataSource.getData(i));
+        viewHolder.setData(dataSource.getCardData(i));
     }
+
 
     @Override
     public int getItemCount() {
@@ -43,12 +43,11 @@ public class SocialNetworkAdapter
         return menuPosition;
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private TextView text;
-        private TextView deadline;
+        private final TextView title;
+        private final TextView text;
+        private final TextView deadline;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -58,16 +57,18 @@ public class SocialNetworkAdapter
 
             registerContextMenu(itemView);
 
+            text.setOnClickListener(v -> {
+                menuPosition = getLayoutPosition();
+                itemView.showContextMenu();
+            });
+
         }
 
         private void registerContextMenu(@NonNull View itemView) {
             if (fragment != null) {
-                itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View v) {
-                        menuPosition = getLayoutPosition();
-                        return false;
-                    }
+                itemView.setOnLongClickListener(v -> {
+                    menuPosition = getLayoutPosition();
+                    return false;
                 });
                 fragment.registerForContextMenu(itemView);
             }
@@ -77,13 +78,6 @@ public class SocialNetworkAdapter
             title.setText(cardData.getNoteName());
             text.setText(cardData.getNote());
             deadline.setText(cardData.getDates());
-            title.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    menuPosition = getLayoutPosition();
-                    itemView.showContextMenu();
-                }
-            });
         }
 
     }
